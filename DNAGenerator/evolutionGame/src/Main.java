@@ -1,3 +1,4 @@
+import java.io.PipedOutputStream;
 import java.util.ArrayList;
 
 import java.util.LinkedList;
@@ -17,11 +18,20 @@ public class Main
         String yourGenom = yourOrganism.creator ();
         ArrayList<String> yourGenomList = new ArrayList<String>();
         yourGenomList =  yourOrganism.toList(yourGenom);
-        for (int i=0; i<4; i++)
+        for (int i=0; i<10; i++)
         {
             yourGenomList = yourOrganism.mutate (yourGenomList);
         }
         System.out.println(yourGenomList);
-
+        ArrayList<String[]> genesSequnces = new ArrayList<String[]>();
+        genesSequnces =  yourOrganism.sequences(yourGenomList);
+        ArrayList <String> genesStringed = yourOrganism.toStrings(genesSequnces);
+        ArrayList <String> catastrophe = new ArrayList<String>();
+        catastrophe = Powers.makeCataclysm();
+        Powers.checkPowers(catastrophe);
+        ArrayList <String> madeMate = new ArrayList<String>();
+        Organism createMate = new Organism();
+        madeMate = createMate.makeMate (genesStringed);
+        genesStringed = createMate.mate (genesStringed, madeMate);
     }
 }
