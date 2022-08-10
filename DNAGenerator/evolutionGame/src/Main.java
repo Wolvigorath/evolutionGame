@@ -32,8 +32,12 @@ public class Main
         youNeed =  Powers.checkPowers(catastrophe);
         ArrayList <String> madeMate = new ArrayList<String>();
         Organism createMate = new Organism();
-        madeMate = createMate.makeMate (genesStringed);
-        genesStringed = createMate.mate (genesStringed, madeMate);
+        for (int i=0; i<3; i++)
+        {
+            madeMate = createMate.makeMate (genesStringed);
+            genesStringed = createMate.mate (genesStringed, madeMate);
+        }
+
         Powers survival = new Powers();
         boolean didSurvive = survival.comparePowers (genesStringed, youNeed);
     }

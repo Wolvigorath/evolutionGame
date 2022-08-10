@@ -7,6 +7,7 @@ public class Powers
     {
         int size = cataclysm.size();
         ArrayList <String> neededPowers = new ArrayList<String>();
+        ArrayList <String> neededGenes = new ArrayList<String>();
         for (int i= 0; i<size; i++)
         {
             String tempString = cataclysm.get(i);
@@ -15,34 +16,42 @@ public class Powers
             {
                 case "ABCD":
                     neededPowers.add("Strength");
+                    neededGenes.add("ABCD");
                     break;
 
                 case "ACBD":
                     neededPowers.add("Speed");
+                    neededGenes.add("ACBD");
                     break;
 
                 case "ACDB":
                     neededPowers.add("Flying");
+                    neededGenes.add("ACDB");
                     break;
 
                 case "ADBC":
                     neededPowers.add("Armor");
+                    neededGenes.add("ADBC");
                     break;
 
                 case "ADCB":
                     neededPowers.add("Hearing");
+                    neededGenes.add("ADCB");
                     break;
 
                 case "BACD":
                     neededPowers.add("Smell");
+                    neededGenes.add("BACD");
                     break;
 
                 case "BADC":
                     neededPowers.add("Sight");
+                    neededGenes.add("BADC");
                     break;
 
                 case "BDAC":
                     neededPowers.add("Swimming");
+                    neededGenes.add("BDAC");
                     break;
 
                 default:
@@ -62,7 +71,7 @@ public class Powers
             System.out.println(neededPowers);
         }
 
-        return neededPowers;
+        return neededGenes;
 
 
     }
@@ -99,7 +108,7 @@ public class Powers
         {
             for (int g =0; g<size; g++)
             {
-                if (organism.get(g)==cataclysm.get(i))
+                if (organism.get(g).equals(cataclysm.get(i)))
                 {
                     isThere = true;
                 }
