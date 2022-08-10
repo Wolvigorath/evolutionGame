@@ -28,10 +28,13 @@ public class Main
         ArrayList <String> genesStringed = yourOrganism.toStrings(genesSequnces);
         ArrayList <String> catastrophe = new ArrayList<String>();
         catastrophe = Powers.makeCataclysm();
-        Powers.checkPowers(catastrophe);
+        ArrayList <String> youNeed = new ArrayList<String>();
+        youNeed =  Powers.checkPowers(catastrophe);
         ArrayList <String> madeMate = new ArrayList<String>();
         Organism createMate = new Organism();
         madeMate = createMate.makeMate (genesStringed);
         genesStringed = createMate.mate (genesStringed, madeMate);
+        Powers survival = new Powers();
+        boolean didSurvive = survival.comparePowers (genesStringed, youNeed);
     }
 }

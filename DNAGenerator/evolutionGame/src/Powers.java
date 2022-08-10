@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class Powers
 {
-    public static void checkPowers (ArrayList <String> cataclysm)
+    public static ArrayList <String> checkPowers (ArrayList <String> cataclysm)
     {
         int size = cataclysm.size();
         ArrayList <String> neededPowers = new ArrayList<String>();
@@ -62,6 +62,7 @@ public class Powers
             System.out.println(neededPowers);
         }
 
+        return neededPowers;
 
 
     }
@@ -79,10 +80,43 @@ public class Powers
 
         for (int i = 0; i<6; i++)
         {
-            r = rand1.nextInt(20)-1;
+            r = rand1.nextInt(20-1);
             String tempGene = Permutations.get(r);
             Cataclysm.add(tempGene);
         }
         return Cataclysm;
+    }
+
+    public static boolean comparePowers (ArrayList <String> organism, ArrayList<String> cataclysm)
+    {
+        boolean isThere = false;
+        boolean isOk = true;
+
+        int size = organism.size();
+        int size2 = cataclysm.size();
+
+        for (int i = 0; i<size2; i++)
+        {
+            for (int g =0; g<size; g++)
+            {
+                if (organism.get(g)==cataclysm.get(i))
+                {
+                    isThere = true;
+                }
+            }
+            if (isThere!=true)
+            {
+                isOk = false;
+            }
+        }
+        if (isOk == true)
+        {
+            System.out.println("You survived");
+        }
+        else
+        {
+            System.out.println("You died");
+        }
+        return isOk;
     }
 }
