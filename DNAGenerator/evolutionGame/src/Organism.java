@@ -197,8 +197,14 @@ public class Organism
 
         for (int i = 0; i<size ; i++)
         {
-            String tempString = Arrays.toString(genomToStrings.get(i)) ;
-            stringed.add(tempString);
+            //String tempString = Arrays.toString(genomToStrings.get(i)) ;
+            StringBuffer stringBuffer = new StringBuffer();
+            for (String element : genomToStrings.get(i))
+            {
+                stringBuffer.append(element);
+            }
+            String result = stringBuffer.toString();
+            stringed.add(result);
         }
 
         return stringed;
