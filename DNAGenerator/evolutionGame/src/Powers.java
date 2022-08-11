@@ -98,7 +98,7 @@ public class Powers
 
     public static boolean comparePowers (ArrayList <String> organism, ArrayList<String> cataclysm)
     {
-        boolean isThere = false;
+        boolean isThere;
         boolean isOk = true;
 
         int size = organism.size();
@@ -106,6 +106,7 @@ public class Powers
 
         for (int i = 0; i<size2; i++)
         {
+            isThere=false;
             for (int g =0; g<size; g++)
             {
                 if (organism.get(g).equals(cataclysm.get(i)))
@@ -127,5 +128,62 @@ public class Powers
             System.out.println("You died");
         }
         return isOk;
+    }
+
+    public static void checkPowersAndPrint (ArrayList <String> organismToCheck)
+    {
+        int size = organismToCheck.size();
+
+        for (int i = 0; i < size; i++)
+        {
+            String tempString = organismToCheck.get(i);
+
+            switch (tempString) {
+                case "ABCD":
+                    System.out.println("Strength");
+
+                    break;
+
+                case "ACBD":
+                    System.out.println("Speed");
+
+                    break;
+
+                case "ACDB":
+                    System.out.println("Flying");
+
+                    break;
+
+                case "ADBC":
+                    System.out.println("Armor");
+
+                    break;
+
+                case "ADCB":
+                    System.out.println("Hearing");
+
+                    break;
+
+                case "BACD":
+                    System.out.println("Smell");
+
+                    break;
+
+                case "BADC":
+                    System.out.println("Sight");
+
+                    break;
+
+                case "BDAC":
+                    System.out.println("Swimming");
+
+                    break;
+
+                default:
+                    break;
+
+            }
+
+        }
     }
 }

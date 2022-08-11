@@ -26,19 +26,21 @@ public class Main
         ArrayList<String[]> genesSequnces = new ArrayList<String[]>();
         genesSequnces =  yourOrganism.sequences(yourGenomList);
         ArrayList <String> genesStringed = yourOrganism.toStrings(genesSequnces);
-        ArrayList <String> catastrophe = new ArrayList<String>();
-        catastrophe = Powers.makeCataclysm();
-        ArrayList <String> youNeed = new ArrayList<String>();
-        youNeed =  Powers.checkPowers(catastrophe);
-        ArrayList <String> madeMate = new ArrayList<String>();
-        Organism createMate = new Organism();
-        for (int i=0; i<3; i++)
+        //ArrayList <String> catastrophe = new ArrayList<String>();
+      //  catastrophe = Powers.makeCataclysm();
+        //ArrayList <String> youNeed = new ArrayList<String>();
+        //youNeed =  Powers.checkPowers(catastrophe);
+        //ArrayList <String> madeMate = new ArrayList<String>();
+        //Organism createMate = new Organism();
+        /*for (int i=0; i<3; i++)
         {
             madeMate = createMate.makeMate (genesStringed);
             genesStringed = createMate.mate (genesStringed, madeMate);
         }
 
         Powers survival = new Powers();
-        boolean didSurvive = survival.comparePowers (genesStringed, youNeed);
+        boolean didSurvive = survival.comparePowers (genesStringed, youNeed);*/
+
+        Levels.levels(genesStringed);
     }
 }
