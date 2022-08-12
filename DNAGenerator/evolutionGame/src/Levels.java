@@ -17,6 +17,7 @@ public class Levels
         Levels greatMutator = new Levels();
         for (int i =0; i<numberOfLevelsAtAll; i++)
         {   int doNoth = 3;
+            int mateMax = 0;
             catastrophe = Powers.makeCataclysm();
             ArrayList <String> youNeed = new ArrayList<String>();
             System.out.println("You need: ");
@@ -38,18 +39,29 @@ public class Levels
 
                    case "2":
                    {
-                       madeMate = createMate.makeMate (organism);
-                       organism = createMate.mate (organism, madeMate);
-                       System.out.println("You have: ");
-                       try
+                       if (mateMax<numberOfLevelsAtAll-i-3)
                        {
-                           Powers.checkPowersAndPrint (organism);
-                           System.out.println("You have these genes: " +  organism);
-                       }
-                       catch (Exception e)
-                       {
+                           madeMate = createMate.makeMate (organism);
+                           organism = createMate.mate (organism, madeMate);
+                           System.out.println("You have: ");
+                           try
+                           {
+                               Powers.checkPowersAndPrint (organism);
+                               System.out.println("You have these genes: " +  organism);
+                           }
+                           catch (Exception e)
+                           {
 
+                           }
+                           mateMax++;
+                           System.out.println("You have: " + (numberOfLevelsAtAll-i-mateMax) + " left to spend");
                        }
+                       else
+                       {
+                           System.out.println("You have used all Your mates on this level");
+                           g--;
+                       }
+
                        break;
                    }
 
