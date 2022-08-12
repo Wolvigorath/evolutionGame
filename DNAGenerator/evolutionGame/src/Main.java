@@ -15,17 +15,18 @@ public class Main
         Manual manual = new Manual();
         manual.prolog ();
         Organism yourOrganism = new Organism();
-        String yourGenom = yourOrganism.creator ();
-        ArrayList<String> yourGenomList = new ArrayList<String>();
-        yourGenomList =  yourOrganism.toList(yourGenom);
-        for (int i=0; i<10; i++)
+        ArrayList <String> yourGenomList = yourOrganism.creator ();
+        //ArrayList<String> yourGenomList = new ArrayList<String>();
+        //yourGenomList =  yourOrganism.toList(yourGenom);
+       /* for (int i=0; i<10; i++)
         {
             yourGenomList = yourOrganism.mutate (yourGenomList);
         }
         System.out.println(yourGenomList);
         ArrayList<String[]> genesSequnces = new ArrayList<String[]>();
-        genesSequnces =  yourOrganism.sequences(yourGenomList);
-        ArrayList <String> genesStringed = yourOrganism.toStrings(genesSequnces);
+        genesSequnces =  yourOrganism.sequences(yourGenomList);*/
+        Levels Mutator = new Levels();
+        ArrayList <String> genesStringed = Mutator.mutateAndBack(yourGenomList);
         //ArrayList <String> catastrophe = new ArrayList<String>();
       //  catastrophe = Powers.makeCataclysm();
         //ArrayList <String> youNeed = new ArrayList<String>();

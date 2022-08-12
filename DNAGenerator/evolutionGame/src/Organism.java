@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Organism
 {
-    public static String creator ()
+    public static ArrayList <String> creator ()
     {
         Scanner input = new Scanner(System.in);
         String nextLine;
@@ -56,13 +56,13 @@ public class Organism
             }
 
         }
-        String genomString = new String();
+       // String genomString = new String();
 
-        genomString = String.join("",genom);
+        //genomString = String.join("",genom);
 
-        System.out.println(genomString);
+        //System.out.println(genomString);
 
-        return  genomString;
+        return  genom;
 
 
     }
@@ -157,7 +157,7 @@ public class Organism
     }
 
 
-    public  static ArrayList <String []> sequences (ArrayList <String> genomToSequent)
+    public  static ArrayList <ArrayList<String>> sequences (ArrayList <String> genomToSequent)
     {
         int i = genomToSequent.size();
         int divide = i/4;
@@ -166,19 +166,19 @@ public class Organism
         {
             divide++;
         }
-        ArrayList <String []> sequent = new ArrayList<String[]>();
+        ArrayList <ArrayList<String>> sequent = new ArrayList<ArrayList<String>>();
         int z=0;
         while (z<i)
         {
-            String [] temp = new String[4];
-
+            //String [] temp = new String[4];
+            ArrayList <String> temp = new ArrayList<String>();
             for (int d=0; d<4; d++)
             {
                 if (z<i)
                 {
                     if (genomToSequent.get(z)!= null)
                     {
-                        temp[d] = genomToSequent.get(z);
+                        temp.add(genomToSequent.get(z));
                         z++;
                     }
                 }
@@ -190,7 +190,7 @@ public class Organism
         return  sequent;
     }
 
-    public static ArrayList <String> toStrings (ArrayList <String []> genomToStrings)
+    public static ArrayList <String> toStrings (ArrayList <ArrayList<String>> genomToStrings)
     {
         int size = genomToStrings.size();
         ArrayList <String> stringed = new ArrayList<String>();
