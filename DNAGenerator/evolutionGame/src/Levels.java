@@ -16,14 +16,15 @@ public class Levels
         Organism createMate = new Organism();
         Levels greatMutator = new Levels();
         for (int i =0; i<numberOfLevelsAtAll; i++)
-        {
+        {   int doNoth = 3;
             catastrophe = Powers.makeCataclysm();
             ArrayList <String> youNeed = new ArrayList<String>();
+            System.out.println("You need: ");
             youNeed =  Powers.checkPowers(catastrophe);
             System.out.println("It's level: " + numberOfLevel);
            for (int g=0; g<(numberOfLevelsAtAll-i); g++)
            {
-               System.out.println("Do You want to mutate (1) or mate (2)?");
+               System.out.println("Do You want to mutate (1), mate (2), do nothing (3) or print numbers and genes of powers (4)?");
                nextLine = input.nextLine();
 
                switch (nextLine)
@@ -42,11 +43,32 @@ public class Levels
                        try
                        {
                            Powers.checkPowersAndPrint (organism);
+                           System.out.println("You have these genes: " +  organism);
                        }
                        catch (Exception e)
                        {
 
                        }
+                       break;
+                   }
+
+                   case "3":
+                   {
+                       if (doNoth>0)
+                       {
+                           doNoth--;
+                       }
+                       else
+                       {
+                           System.out.println("You can't wait anymore - mate or mutate");
+                           g--;
+                       }
+                       break;
+                   }
+                   case "4":
+                   {
+                       Manual.abilities();
+                       g--;
                        break;
                    }
                    default:
@@ -76,7 +98,7 @@ public class Levels
         //yourGenomList =  yourOrganism.toList(genomToMutate);
         Organism yourOrganism = new Organism();
 
-        System.out.println(genomToMutate);
+        System.out.println("You had these genes: " + genomToMutate);
         String genomString = new String();
         genomString = String.join("",genomToMutate);
         genomToMutate = yourOrganism.toList (genomString);
@@ -101,7 +123,8 @@ public class Levels
         ArrayList <ArrayList<String>> genesSequnces = new ArrayList<ArrayList<String>>();
         genesSequnces =  yourOrganism.sequences(genomToMutate);
         ArrayList <String> genesStringed = yourOrganism.toStrings(genesSequnces);
-        System.out.println(genesStringed);
+        System.out.println("You have these genes: " +  genesStringed);
+        //System.out.println("You have these powers: ");
         Powers.checkPowersAndPrint(genesStringed);
         return genesStringed;
     }

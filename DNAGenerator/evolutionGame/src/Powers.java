@@ -87,7 +87,7 @@ public class Powers
         Random rand1 = new Random();
         int r = 0;
 
-        for (int i = 0; i<6; i++)
+        for (int i = 0; i<3; i++)
         {
             r = rand1.nextInt(20-1);
             String tempGene = Permutations.get(r);
