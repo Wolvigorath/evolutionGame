@@ -8,7 +8,7 @@ public class Organism
         Scanner input = new Scanner(System.in);
         String nextLine;
         ArrayList <String> genom = new ArrayList<String>();
-        for (int i = 0; i <6; i++)
+        for (; genom.size() <6;)
         {
             Manual powers = new Manual();
             powers.abilities ();
