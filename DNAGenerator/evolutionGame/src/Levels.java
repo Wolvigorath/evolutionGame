@@ -24,7 +24,8 @@ public class Levels
             System.out.println("It's level: " + numberOfLevel);
            for (int g=0; g<(numberOfLevelsAtAll-i); g++)
            {
-               System.out.println("Do You want to mutate (1), mate (2), do nothing (3) or print numbers and genes of powers (4)?");
+               System.out.println("Do You want to mutate (1), mate (2), do nothing (3), print " +
+                       "numbers and genes of powers (4) or show Your powers (5)?");
                nextLine = input.nextLine();
 
                switch (nextLine)
@@ -71,9 +72,20 @@ public class Levels
                        g--;
                        break;
                    }
-                   default:
-                       System.out.println("Wrong instruction");
+
+                   case "5":
+                   {
+                       Powers.checkPowersAndPrint(organism);
+                       g--;
                        break;
+                   }
+                   default:
+                   {
+                       System.out.println("Wrong instruction");
+                       g--;
+                       break;
+                   }
+
                }
                System.out.println("Number of operations left: " + (numberOfLevelsAtAll-i-g-1));
 
@@ -124,7 +136,7 @@ public class Levels
         genesSequnces =  yourOrganism.sequences(genomToMutate);
         ArrayList <String> genesStringed = yourOrganism.toStrings(genesSequnces);
         System.out.println("You have these genes: " +  genesStringed);
-        //System.out.println("You have these powers: ");
+        System.out.println("You have these powers: ");
         Powers.checkPowersAndPrint(genesStringed);
         return genesStringed;
     }
