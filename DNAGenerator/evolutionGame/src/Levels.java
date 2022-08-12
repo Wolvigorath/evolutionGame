@@ -53,6 +53,7 @@ public class Levels
                        System.out.println("Wrong instruction");
                        break;
                }
+               System.out.println("Number of operations left: " + (numberOfLevelsAtAll-i-g-1));
 
            }
 
@@ -101,6 +102,7 @@ public class Levels
         genesSequnces =  yourOrganism.sequences(genomToMutate);
         ArrayList <String> genesStringed = yourOrganism.toStrings(genesSequnces);
         System.out.println(genesStringed);
+        Powers.checkPowersAndPrint(genesStringed);
         return genesStringed;
     }
 }
